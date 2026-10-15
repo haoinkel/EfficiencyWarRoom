@@ -59,9 +59,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationRail
-import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -169,7 +167,7 @@ fun WarRoomApp(viewModel: WarRoomViewModel = viewModel()) {
         bottomBar = {
             if (!isWide) {
                 NavigationBar {
-                    screens.forEach { screen -> NavItem(screen, selected, false) { selected = screen } }
+                    screens.forEach { screen -> NavItem(screen, selected, false, Modifier.weight(1f)) { selected = screen } }
                 }
             }
         }
@@ -177,7 +175,7 @@ fun WarRoomApp(viewModel: WarRoomViewModel = viewModel()) {
         if (isWide) {
             Row(Modifier.fillMaxSize()) {
                 NavigationRail(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)) {
-                    screens.forEach { screen -> NavItem(screen, selected, true) { selected = screen } }
+                    screens.forEach { screen -> NavItem(screen, selected, true, Modifier.fillMaxWidth()) { selected = screen } }
                 }
                 Box(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
                     RenderScreen(selected, viewModel)
@@ -192,31 +190,42 @@ fun WarRoomApp(viewModel: WarRoomViewModel = viewModel()) {
 }
 
 @Composable
-fun NavItem(screen: Screen, selected: Screen, isWide: Boolean, onClick: () -> Unit) {
-    val icon: @Composable () -> Unit = {
+fun NavItem(
+    screen: Screen,
+    selected: Screen,
+    isWide: Boolean,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
+    val isSelected = selected == screen
+    val contentColor =
+        if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+    val icon: @Composable (Color) -> Unit = { tint ->
         when (screen) {
-            Screen.Input -> Icon(Icons.Default.Edit, contentDescription = null)
-            Screen.WarMap -> Icon(Icons.Default.Menu, contentDescription = null)
-            Screen.Sandbox -> Icon(Icons.Default.Home, contentDescription = null)
-            Screen.Compare -> Icon(Icons.Default.List, contentDescription = null)
-            Screen.Layout -> Icon(Icons.Default.Place, contentDescription = null)
-            Screen.Personnel -> Icon(Icons.Default.Person, contentDescription = null)
-            Screen.Improvement -> Icon(Icons.Default.ThumbUp, contentDescription = null)
+            Screen.Input -> Icon(Icons.Default.Edit, contentDescription = null, tint = tint)
+            Screen.WarMap -> Icon(Icons.Default.Menu, contentDescription = null, tint = tint)
+            Screen.Sandbox -> Icon(Icons.Default.Home, contentDescription = null, tint = tint)
+            Screen.Compare -> Icon(Icons.Default.List, contentDescription = null, tint = tint)
+            Screen.Layout -> Icon(Icons.Default.Place, contentDescription = null, tint = tint)
+            Screen.Personnel -> Icon(Icons.Default.Person, contentDescription = null, tint = tint)
+            Screen.Improvement -> Icon(Icons.Default.ThumbUp, contentDescription = null, tint = tint)
         }
     }
-    if (isWide) {
-        NavigationRailItem(
-            selected = selected == screen,
-            onClick = onClick,
-            icon = icon,
-            label = { Text(screen.label, maxLines = 1, overflow = TextOverflow.Ellipsis) }
-        )
-    } else {
-        NavigationBarItem(
-            selected = selected == screen,
-            onClick = onClick,
-            icon = icon,
-            label = { Text(screen.label, maxLines = 1, overflow = TextOverflow.Ellipsis) }
+    Column(
+        modifier = modifier
+            .clickable(onClick = onClick)
+            .padding(vertical = if (isWide) 12.dp else 8.dp, horizontal = 12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        icon(contentColor)
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            screen.label,
+            fontSize = 11.sp,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            color = contentColor
         )
     }
 }
