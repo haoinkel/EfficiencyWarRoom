@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 600" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+<rect width="920" height="600" fill="#f4f7fb"/>
+<text x="20" y="34" font-size="20" font-weight="700" fill="#1f3a5f">人效提升作战图（最终输出 · 日产 80 台）</text>
+<text x="20" y="54" font-size="12" fill="#5b6b7b">工作时段 08:10-10:00 / 10:15-11:30 / 13:00-19:00　日可用 545 min　客户节拍 6.81 min/件　需要 15 人 / 当前 16 人</text>
+<rect x="20" y="66" width="170" height="58" rx="8" fill="white" stroke="#dde3ea"/>
+<text x="32" y="86" font-size="12" fill="#5b6b7b">客户节拍</text>
+<text x="32" y="112" font-size="22" font-weight="700" fill="#2f6fb0">6.81</text>
+<text x="84" y="112" font-size="11" fill="#90a0b0"> min/件</text>
+<rect x="198" y="66" width="170" height="58" rx="8" fill="white" stroke="#dde3ea"/>
+<text x="210" y="86" font-size="12" fill="#5b6b7b">日产台数</text>
+<text x="210" y="112" font-size="22" font-weight="700" fill="#3a7d44">80</text>
+<text x="236" y="112" font-size="11" fill="#90a0b0"> 台/日</text>
+<rect x="376" y="66" width="170" height="58" rx="8" fill="white" stroke="#dde3ea"/>
+<text x="388" y="86" font-size="12" fill="#5b6b7b">需要人数</text>
+<text x="388" y="112" font-size="22" font-weight="700" fill="#c0392b">15</text>
+<text x="414" y="112" font-size="11" fill="#90a0b0"> 人</text>
+<rect x="554" y="66" width="170" height="58" rx="8" fill="white" stroke="#dde3ea"/>
+<text x="566" y="86" font-size="12" fill="#5b6b7b">当前人数</text>
+<text x="566" y="112" font-size="22" font-weight="700" fill="#e08e0b">16</text>
+<text x="592" y="112" font-size="11" fill="#90a0b0"> 人</text>
+<rect x="732" y="66" width="170" height="58" rx="8" fill="white" stroke="#dde3ea"/>
+<text x="744" y="86" font-size="12" fill="#5b6b7b">自动支援</text>
+<text x="744" y="112" font-size="22" font-weight="700" fill="#8e44ad">1</text>
+<text x="757" y="112" font-size="11" fill="#90a0b0"> 人</text>
+<rect x="20" y="150" width="880" height="30" fill="#1f3a5f"/>
+<text x="28" y="170" font-size="12" fill="white" font-weight="600">指标 \ 工序</text>
+<text x="178.0" y="170" font-size="10" fill="white" text-anchor="middle">前车架打磨</text>
+<text x="234.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架人工补</text>
+<text x="290.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架总成焊</text>
+<text x="346.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架一次补</text>
+<text x="402.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架一次焊</text>
+<text x="458.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架总成组</text>
+<text x="514.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架二次组</text>
+<text x="570.0" y="170" font-size="10" fill="white" text-anchor="middle">后车架一次组</text>
+<text x="626.0" y="170" font-size="10" fill="white" text-anchor="middle">扭力筒组对</text>
+<text x="682.0" y="170" font-size="10" fill="white" text-anchor="middle">前车架总成组</text>
+<text x="738.0" y="170" font-size="10" fill="white" text-anchor="middle">前车架基础组</text>
+<text x="794.0" y="170" font-size="10" fill="white" text-anchor="middle">前车架总成焊</text>
+<text x="850.0" y="170" font-size="10" fill="white" text-anchor="middle">前车架焊接</text>
+<rect x="20" y="180" width="130" height="40" fill="#eef2f7"/>
+<text x="28" y="202" font-size="12" fill="#2c3e50" font-weight="600">协作/支援路线图</text>
+<line x1="150" y1="200.0" x2="878" y2="200.0" stroke="#cbd3dc" stroke-width="2"/>
+<circle cx="178.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="234.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="290.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="346.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="402.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="458.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="514.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="570.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="626.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="682.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="738.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="794.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<circle cx="850.0" cy="200.0" r="4" fill="#2f6fb0"/>
+<line x1="682.0" y1="200.0" x2="458.0" y2="200.0" stroke="#e08e0b" stroke-width="3"/>
+<line x1="450.0" y1="194.0" x2="458.0" y2="200.0" stroke="#e08e0b" stroke-width="3"/>
+<line x1="450.0" y1="206.0" x2="458.0" y2="200.0" stroke="#e08e0b" stroke-width="3"/>
+<rect x="558.0" y="170.0" width="24" height="16" rx="4" fill="#e08e0b"/>
+<text x="570.0" y="182.0" font-size="11" fill="white" text-anchor="middle" font-weight="700">1人</text>
+<rect x="20" y="220" width="130" height="30" fill="#eef2f7"/>
+<text x="28" y="240" font-size="12" fill="#2c3e50" font-weight="600">单人单台时间</text>
+<rect x="150" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="178.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">15.75</text>
+<rect x="206" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="234.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">5.71</text>
+<rect x="262" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="290.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">4.73</text>
+<rect x="318" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="346.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">4.14</text>
+<rect x="374" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="402.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">4.14</text>
+<rect x="430" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="458.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">6.12</text>
+<rect x="486" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="514.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">4.40</text>
+<rect x="542" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="570.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">4.40</text>
+<rect x="598" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="626.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">4.40</text>
+<rect x="654" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="682.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="710" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="738.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="766" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="794.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="822" y="220" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="850.0" y="240" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="20" y="250" width="130" height="30" fill="#eef2f7"/>
+<text x="28" y="270" font-size="12" fill="#2c3e50" font-weight="600">N台时间</text>
+<rect x="150" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="178.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.84</text>
+<rect x="206" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="234.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">5.71</text>
+<rect x="262" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="290.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.73</text>
+<rect x="318" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="346.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.14</text>
+<rect x="374" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="402.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.14</text>
+<rect x="430" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="458.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">6.12</text>
+<rect x="486" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="514.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.40</text>
+<rect x="542" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="570.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.40</text>
+<rect x="598" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="626.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">4.40</text>
+<rect x="654" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="682.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="710" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="738.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="766" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="794.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="822" y="250" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="850.0" y="270" font-size="10" fill="#2c3e50" text-anchor="middle">3.66</text>
+<rect x="20" y="280" width="130" height="30" fill="#eef2f7"/>
+<text x="28" y="300" font-size="12" fill="#2c3e50" font-weight="600">日可用时间</text>
+<rect x="150" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="178.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="206" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="234.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="262" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="290.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="318" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="346.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="374" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="402.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="430" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="458.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="486" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="514.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="542" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="570.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="598" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="626.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="654" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="682.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="710" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="738.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="766" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="794.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="822" y="280" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="850.0" y="300" font-size="10" fill="#2c3e50" text-anchor="middle">545</text>
+<rect x="20" y="310" width="130" height="30" fill="#eef2f7"/>
+<text x="28" y="330" font-size="12" fill="#2c3e50" font-weight="600">差异时间</text>
+<rect x="150" y="310" width="56" height="30" fill="#fdecea" stroke="#e3e8ee"/>
+<text x="178.0" y="330" font-size="10" fill="#c0392b" text-anchor="middle">-715</text>
+<rect x="206" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="234.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">88</text>
+<rect x="262" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="290.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">167</text>
+<rect x="318" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="346.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">214</text>
+<rect x="374" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="402.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">214</text>
+<rect x="430" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="458.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">55</text>
+<rect x="486" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="514.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">193</text>
+<rect x="542" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="570.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">193</text>
+<rect x="598" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="626.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">193</text>
+<rect x="654" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="682.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">252</text>
+<rect x="710" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="738.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">252</text>
+<rect x="766" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="794.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">252</text>
+<rect x="822" y="310" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="850.0" y="330" font-size="10" fill="#3a7d44" text-anchor="middle">252</text>
+<rect x="20" y="340" width="130" height="30" fill="#eef2f7"/>
+<text x="28" y="360" font-size="12" fill="#2c3e50" font-weight="600">需要人数</text>
+<rect x="150" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="178.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">3</text>
+<rect x="206" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="234.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="262" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="290.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="318" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="346.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="374" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="402.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="430" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="458.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="486" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="514.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="542" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="570.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="598" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="626.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="654" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="682.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="710" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="738.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="766" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="794.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="822" y="340" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="850.0" y="360" font-size="10" fill="#2c3e50" text-anchor="middle">1</text>
+<rect x="20" y="370" width="130" height="30" fill="#eef2f7"/>
+<text x="28" y="390" font-size="12" fill="#2c3e50" font-weight="600">人员配置</text>
+<rect x="150" y="370" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="178.0" y="390" font-size="10" fill="#3a7d44" text-anchor="middle">冗余1</text>
+<rect x="206" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="234.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="262" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="290.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="318" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="346.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="374" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="402.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="430" y="370" width="56" height="30" fill="#fdecea" stroke="#e3e8ee"/>
+<text x="458.0" y="390" font-size="10" fill="#c0392b" text-anchor="middle">缺1</text>
+<rect x="486" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="514.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="542" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="570.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="598" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="626.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="654" y="370" width="56" height="30" fill="#eafaf1" stroke="#e3e8ee"/>
+<text x="682.0" y="390" font-size="10" fill="#3a7d44" text-anchor="middle">冗余1</text>
+<rect x="710" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="738.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="766" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="794.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="822" y="370" width="56" height="30" fill="#ffffff" stroke="#e3e8ee"/>
+<text x="850.0" y="390" font-size="10" fill="#2c3e50" text-anchor="middle">匹配</text>
+<rect x="20" y="414" width="880" height="92" rx="10" fill="white" stroke="#e08e0b" stroke-width="2"/>
+<rect x="20" y="414" width="6" height="92" rx="3" fill="#8e44ad"/>
+<text x="40" y="440" font-size="14" font-weight="700" fill="#8e44ad">支援方案（同工种自动调配）</text>
+<text x="40" y="464" font-size="13" fill="#2c3e50">前车架总成组对 派 <tspan font-weight="700" fill="#c0392b">1 人</tspan> → 后车架总成组对</text>
+<text x="40" y="486" font-size="13" fill="#c0392b" font-weight="600">每天支援时段 10:51 - 19:00</text>
+<text x="40" y="504" font-size="11" fill="#e08e0b">（含 20% 弹性缓冲 ≈ 29 分钟，实际到岗时间误差控制在 20% 以内）</text>
+</svg>

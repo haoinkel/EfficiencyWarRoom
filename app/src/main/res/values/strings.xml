@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">人效作战沙盘</string>
+    <string name="title_input">数据录入</string>
+    <string name="title_sandbox">作战沙盘</string>
+    <string name="title_layout">布局调整</string>
+    <string name="title_personnel">人员调配</string>
+    <string name="title_improvement">提升方案</string>
+</resources>

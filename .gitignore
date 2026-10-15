@@ -1,0 +1,27 @@
+# Built application files
+*.apk
+*.aar
+*.jar
+*.war
+
+# Local configuration (SDK path, signing, etc.)
+local.properties
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE / Editor
+.idea/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Logs / captures
+captures/
+*.log
+
+# Kotlin / Compose
+.kotlin/
