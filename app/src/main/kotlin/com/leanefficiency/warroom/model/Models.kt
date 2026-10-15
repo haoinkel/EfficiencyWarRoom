@@ -681,7 +681,7 @@ object EfficiencyCalculator {
                     expectedBenefit = "当前平衡率 %.1f%%，通过削峰填谷预计日产能从 %.0f 提升至 %.0f 件".format(
                         result.balanceRate,
                         result.estimatedDailyOutput,
-                        result.params.availableMinutes / (result.totalWork / max(1, result.steps.size))
+                        result.params.availableMinutes / (result.steps.sumOf { it.singlePieceTimeMin } / max(1, result.steps.size))
                     ),
                     priority = "高"
                 )

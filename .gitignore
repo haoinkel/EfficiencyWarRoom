@@ -25,3 +25,6 @@ captures/
 
 # Kotlin / Compose
 .kotlin/
+
+# CI logs extracted locally for diagnosis (not part of source)
+ci_logs/

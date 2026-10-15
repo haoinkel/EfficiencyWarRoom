@@ -46,6 +46,8 @@ import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
@@ -79,6 +81,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
@@ -585,6 +588,7 @@ fun CycleTimeBarChart(result: WarRoomResult) {
     val takt = result.params.customerTakt
     val maxVal = max(result.lineCycleTime, takt) * 1.1
     if (maxVal <= 0) return
+    val primaryColor = MaterialTheme.colorScheme.primary
     Card(modifier = Modifier.fillMaxWidth().height(260.dp), elevation = CardDefaults.cardElevation(2.dp)) {
         Column(modifier = Modifier.padding(12.dp)) {
             Box(modifier = Modifier.fillMaxWidth().height(180.dp)) {
@@ -600,7 +604,7 @@ fun CycleTimeBarChart(result: WarRoomResult) {
                     )
                     result.steps.forEachIndexed { index, step ->
                         val h = (step.cycleTime / maxVal * baselineY).toFloat()
-                        val color = if (step.id == result.bottleneckStepId) BottleneckRed else MaterialTheme.colorScheme.primary
+                        val color = if (step.id == result.bottleneckStepId) BottleneckRed else primaryColor
                         drawRect(
                             color = color,
                             topLeft = Offset(barWidth * (index * 2 + 1), baselineY - h),
@@ -942,6 +946,7 @@ fun WarMapFlowDiagram(
             val diagramHeight = maxHeight - topPadding - bottomPadding
             val nodeCount = sortedCells.size
             val nodeSpacing = if (nodeCount > 1) diagramHeight / (nodeCount - 1) else 0.dp
+            val primaryColor = MaterialTheme.colorScheme.primary
 
             Canvas(modifier = Modifier.fillMaxSize()) {
                 val railX = size.width - with(density) { railRightPadding.toPx() }
@@ -971,7 +976,7 @@ fun WarMapFlowDiagram(
                     val color = when {
                         supports.any { it.toStepId == cell.step.id } -> BottleneckRed
                         supports.any { it.fromStepId == cell.step.id } -> SurplusGreen
-                        else -> MaterialTheme.colorScheme.primary
+                        else -> primaryColor
                     }
                     drawCircle(color, radius = nodeRadiusPx, center = center)
                 }
@@ -1004,7 +1009,7 @@ fun WarMapFlowDiagram(
 
             // 左侧节点名称与身份标签
             sortedCells.forEachIndexed { index, cell ->
-                val y = topPadding + index * nodeSpacing
+                val y = topPadding + nodeSpacing * index
                 val isReceiver = supports.any { it.toStepId == cell.step.id }
                 val isDonor = supports.any { it.fromStepId == cell.step.id }
                 val role = when {
@@ -1039,8 +1044,8 @@ fun WarMapFlowDiagram(
                 val fromIndex = sortedCells.indexOfFirst { it.step.id == support.fromStepId }
                 val toIndex = sortedCells.indexOfFirst { it.step.id == support.toStepId }
                 if (fromIndex >= 0 && toIndex >= 0) {
-                    val fromY = topPadding + fromIndex * nodeSpacing
-                    val toY = topPadding + toIndex * nodeSpacing
+                    val fromY = topPadding + nodeSpacing * fromIndex
+                    val toY = topPadding + nodeSpacing * toIndex
                     val midY = (fromY + toY) / 2
                     Box(
                         modifier = Modifier.offset(
@@ -1123,6 +1128,7 @@ fun LayoutCanvas(result: WarRoomResult) {
         BoxWithConstraints(modifier = Modifier.fillMaxSize().padding(16.dp)) {
             val width = constraints.maxWidth.toFloat()
             val height = constraints.maxHeight.toFloat()
+            val primaryColor = MaterialTheme.colorScheme.primary
             Canvas(modifier = Modifier.fillMaxSize()) {
                 // channel
                 drawRect(color = Color(0xFFE0E0E0), topLeft = Offset(0f, height * 0.45f), size = Size(width, height * 0.1f))
@@ -1133,7 +1139,7 @@ fun LayoutCanvas(result: WarRoomResult) {
                         step.id == result.bottleneckStepId -> BottleneckRed
                         step.loadRate(result.params.customerTakt) > 0.9 -> ShortageAmber
                         step.headcountDelta(result.params.customerTakt) > 0 -> SurplusGreen
-                        else -> MaterialTheme.colorScheme.primary
+                        else -> primaryColor
                     }
                     drawCircle(color = color, radius = 14.dp.toPx(), center = Offset(cx, cy))
                     drawCircle(color = Color.White, radius = 14.dp.toPx(), center = Offset(cx, cy), style = Stroke(width = 2.dp.toPx()))
