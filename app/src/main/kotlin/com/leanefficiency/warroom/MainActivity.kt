@@ -712,11 +712,236 @@ fun HeadcountDeltaChart(result: WarRoomResult) {
 }
 
 @Composable
+fun WarMapProcessTable(
+    warMap: WarMapResult,
+    result: WarRoomResult,
+    modifier: Modifier = Modifier
+) {
+    val cells = warMap.cells
+    if (cells.isEmpty()) return
+
+    val cellWidth = 88.dp
+    val rowHeight = 76.dp
+    val headerHeight = 56.dp
+    val labelWidth = 96.dp
+    val scrollState = rememberScrollState()
+    val supports = warMap.supports
+
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(2.dp)
+    ) {
+        Column(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
+            Text(
+                "← 左右拖动查看全部工序 →",
+                style = MaterialTheme.typography.labelSmall,
+                color = Color.Gray,
+                modifier = Modifier.padding(bottom = 4.dp)
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(scrollState)
+            ) {
+                // 固定左侧标签列
+                Column(modifier = Modifier.width(labelWidth)) {
+                    Box(
+                        modifier = Modifier.fillMaxWidth().height(headerHeight),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("指标 \\ 工序", style = MaterialTheme.typography.labelSmall, color = Color.Gray)
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(rowHeight)
+                            .padding(4.dp),
+                        contentAlignment = Alignment.CenterStart
+                    ) {
+                        Text("布局图", style = MaterialTheme.typography.labelMedium, color = Color.DarkGray)
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(rowHeight)
+                            .padding(4.dp),
+                        contentAlignment = Alignment.CenterStart
+                    ) {
+                        Text("协作流程图", style = MaterialTheme.typography.labelMedium, color = Color.DarkGray)
+                    }
+                }
+
+                // 可横向滚动的工序列
+                Column {
+                    // 表头
+                    Row {
+                        cells.forEachIndexed { index, cell ->
+                            Box(
+                                modifier = Modifier
+                                    .width(cellWidth)
+                                    .height(headerHeight)
+                                    .padding(2.dp)
+                                    .background(Color(0xFFF5F5F5), RoundedCornerShape(4.dp))
+                                    .border(0.5.dp, Color.LightGray, RoundedCornerShape(4.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    "工序${index + 1}\n${cell.step.name}",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    textAlign = TextAlign.Center,
+                                    maxLines = 2,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                        }
+                    }
+                    // 布局图行
+                    Row {
+                        cells.forEach { cell ->
+                            val color = when {
+                                cell.step.id == result.bottleneckStepId -> BottleneckRed
+                                cell.step.loadRate(result.params.customerTakt) > 0.9 -> ShortageAmber
+                                cell.step.headcountDelta(result.params.customerTakt) > 0 -> SurplusGreen
+                                else -> MaterialTheme.colorScheme.primary
+                            }
+                            Box(
+                                modifier = Modifier
+                                    .width(cellWidth)
+                                    .height(rowHeight)
+                                    .padding(2.dp)
+                                    .border(0.5.dp, Color.LightGray, RoundedCornerShape(4.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Box(
+                                        modifier = Modifier
+                                            .width(48.dp)
+                                            .height(28.dp)
+                                            .background(color, RoundedCornerShape(4.dp)),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Text(
+                                            "${cell.step.stationCount}工位",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = Color.White,
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis
+                                        )
+                                    }
+                                    Spacer(Modifier.height(2.dp))
+                                    Text(
+                                        "${cell.step.currentHeadcount}人",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = Color.DarkGray
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    // 协作流程图行
+                    Box(
+                        modifier = Modifier
+                            .width(cellWidth * cells.size)
+                            .height(rowHeight)
+                    ) {
+                        if (supports.isEmpty()) {
+                            Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text("当前无跨工序支援需求", style = MaterialTheme.typography.bodySmall, color = Color.Gray)
+                            }
+                        } else {
+                            val density = androidx.compose.ui.platform.LocalDensity.current
+                            Canvas(modifier = Modifier.fillMaxSize()) {
+                                val stepPx = with(density) { cellWidth.toPx() }
+                                val rowPx = with(density) { rowHeight.toPx() }
+                                val lineStroke = with(density) { 2.dp.toPx() }
+                                val arrowLen = with(density) { 6.dp.toPx() }
+                                val arrowWing = with(density) { 3.dp.toPx() }
+
+                                // 列分隔虚线
+                                for (i in 0..cells.size) {
+                                    val x = i * stepPx
+                                    drawLine(
+                                        color = Color(0xFFE0E0E0),
+                                        start = Offset(x, 0f),
+                                        end = Offset(x, rowPx),
+                                        strokeWidth = with(density) { 0.5.dp.toPx() }
+                                    )
+                                }
+
+                                supports.forEachIndexed { idx, support ->
+                                    val fromIndex = cells.indexOfFirst { it.step.id == support.fromStepId }
+                                    val toIndex = cells.indexOfFirst { it.step.id == support.toStepId }
+                                    if (fromIndex < 0 || toIndex < 0) return@forEachIndexed
+
+                                    val fromX = fromIndex * stepPx + stepPx / 2
+                                    val toX = toIndex * stepPx + stepPx / 2
+                                    val color = if (idx % 2 == 0) Color(0xFFE53935) else Color(0xFF1976D2)
+
+                                    // 错开高度，避免多条支援线重叠
+                                    val lane = idx % 3
+                                    val y = rowPx * (0.3f + lane * 0.22f)
+
+                                    val leftX = minOf(fromX, toX)
+                                    val rightX = maxOf(fromX, toX)
+                                    drawLine(color, Offset(leftX, y), Offset(rightX, y), lineStroke)
+
+                                    // 箭头指向 to 列
+                                    val dir = if (toX > fromX) 1f else -1f
+                                    val tipX = toX
+                                    drawLine(color, Offset(tipX - dir * arrowLen, y - arrowWing), Offset(tipX, y), lineStroke)
+                                    drawLine(color, Offset(tipX - dir * arrowLen, y + arrowWing), Offset(tipX, y), lineStroke)
+                                }
+                            }
+
+                            // 支援标签覆盖层
+                            supports.forEachIndexed { idx, support ->
+                                val fromIndex = cells.indexOfFirst { it.step.id == support.fromStepId }
+                                val toIndex = cells.indexOfFirst { it.step.id == support.toStepId }
+                                if (fromIndex < 0 || toIndex < 0) return@forEachIndexed
+
+                                val midIndex = (fromIndex + toIndex) / 2
+                                val lane = idx % 3
+                                val xCenter = cellWidth * midIndex + cellWidth / 2
+                                val y = rowHeight * (0.3f + lane * 0.22f)
+
+                                Box(
+                                    modifier = Modifier
+                                        .offset(
+                                            x = xCenter - 60.dp,
+                                            y = y - 24.dp
+                                        )
+                                        .width(120.dp)
+                                        .background(Color.White.copy(alpha = 0.92f), RoundedCornerShape(4.dp))
+                                        .border(0.5.dp, Color.LightGray, RoundedCornerShape(4.dp))
+                                        .padding(horizontal = 4.dp, vertical = 2.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        "${support.fromName}派${support.count}人\n${support.supportWindow}支援${support.toName}",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = Color(0xFF2C3E50),
+                                        textAlign = TextAlign.Center,
+                                        maxLines = 2,
+                                        overflow = TextOverflow.Ellipsis
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
 fun WarMapScreen(viewModel: WarRoomViewModel) {
     val warMap = viewModel.warMap.value
     val params = viewModel.params.value
     val result = viewModel.result.value
-    val scrollState = rememberScrollState()
     Column(modifier = Modifier.fillMaxSize().background(Color(0xFFE8F4FD)).padding(16.dp).verticalScroll(rememberScrollState())) {
         Text("生产调度大屏（人效作战图）", style = MaterialTheme.typography.titleLarge)
         Spacer(Modifier.height(8.dp))
@@ -733,13 +958,7 @@ fun WarMapScreen(viewModel: WarRoomViewModel) {
             KpiCard(title = "瓶颈工序", value = result.bottleneckName, unit = "", color = SurplusGreen, modifier = Modifier.weight(1f))
         }
         Spacer(Modifier.height(16.dp))
-        Text("工序协作流程图", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(8.dp))
-        WarMapFlowDiagram(warMap, result)
-        Spacer(Modifier.height(16.dp))
-        Text("作战图矩阵（横向滚动）", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(8.dp))
-        WarMapMatrix(warMap, result, scrollState)
+        WarMapProcessTable(warMap, result)
         Spacer(Modifier.height(16.dp))
         Text("自动支援方案", style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.height(8.dp))
